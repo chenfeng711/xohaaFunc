@@ -1,0 +1,134 @@
+-------------v1.3.41：
+1.Func类增加 setFlowFields 函数，用来创建流程主文档所需要的字段。
+
+-------------v1.3.42：20170302
+增加如下函数
+增加函数base：setQueryKeyToDoc 根据URL参数回写文档。
+增加函数base：setQueryKey，getQueryKey 重置URL参数或获取URL参数的数组
+增加函数func: documentSetToJsonObject 文档字段转JSON输出
+增加函数base：getRequestMethod 输出当前请求是 POST或GET，只用于ajax
+增加函数func: getItemValueString(String fieldname) ，读取上一次getItemValueString文档字段的值
+增加函数func: getItemValueString(View view,Vector<String> searchkeys,String fieldname) 读取文档字段的值
+
+-------------v1.3.43：20170401
+HandleFlow：修复流程中止功能，无法获取返回值问题。
+func:增加delToDo函数，删除待办
+
+-------------v1.3.44：20170409
+修复getItemValueString 出错。
+增加函数base：getURLQueryString(String keyd,boolean isneed) 增加判断必填，并且抛出异常
+
+-------------v1.3.45 20170603:
+修复initPoolCon函数因 initDb.recycle()引起的错误。
+增加函数HandleSQLCon:增加 setInitDb和getInitDb设置或获取数据库集成对象。
+在com.xohaa.ListArray包下增加Field,FieldList类
+增加函数Action:增加getCurMkdir方法,在HTML目录下创建或读取或创建目录，返回绝对路径。
+
+-------------v1.3.46 20170603:
+修改recycleFunc 去掉错误抛出。
+
+-------------v1.3.47:20170612
+HandleSQLCon：增加getDBType，获取数据库类型
+Action:增加printErr，获取错误信息。
+
+-------------v1.3.48:20170615
+SysOrg:增加updateNamesPerson函数
+
+-------------v1.3.49:20170615
+修复documentSetToJsonObject的报错。
+
+-------------v1.3.50:20171108
+增加函数base:
+getCurDBFileName
+-------------v1.4.0:20171108
+getJsonData,setJsonData,putJSONData,printWriteErr(p,e),printJSONData(p),putJSONDataSuccess
+封装JSONData和输出JSON
+
+-------------v1.4.1:20171206
+修复使用HandleSQLCon，直连方式，getDBType报空指针问题。
+增加函数base：printJsonData(getAgentOutput,json)
+把所属输入json使用内置JSON进行输出。
+增加getVersion方法查看版本。
+
+-------------v1.4.2:20180124
+修改Func的getDocumentBykey，增加database和view的判断为null输出。
+Base：PostDataQueryValue在post的时候增加isposthtml=1判断，如果成立则不读取Post参数，读取URL参数。
+Base：增加getRequestContent方法。
+
+-------------v1.4.3:20180218
+增加tablelist相关的类。
+
+-------------v1.4.4:20180303
+Base：增加getServerName,initStartTime：记录开始时间,printRunTime：输出结束耗时
+Func:getDocumentByAgentID,getDocumentByID，saveAgentAPIManage
+增加FlowEventSet接口
+
+-------------v1.4.5:20180316
+增加：base：saveAgentErr保存错误日志
+增加HandlePool类处理自定义SQL
+
+-------------v1.4.6:20180408
+Func: 增加getAllEntries(viewname),getAllEntries(db,viewname),getAllEntries(dbname,viewname)
+HandleSQLCon：增加closePst方法。
+
+-------------v1.4.7:20180417
+base:增加：getURLQueryString(String keyd,boolean isneed,String tips)
+base:增加出错发送邮件知会。
+
+-------------v1.4.8:20180504
+支持：jvm1.8，去掉了pool连接池
+添加 PersionInfo类型
+Func:getDocumentBykey(Database db, View view,String searchkeys, boolean exact)
+HandleSQLCon：增加executeQuery_prepare函数
+
+-------------v1.4.9:20180523
+Action:添加resultSetToJsonObject(ResultSet rs)
+添加com.xohaa.flow 和 com.xohaa.handlesql
+
+-------------v1.4.10:20180606
+修复由代理调用代理 遇到错误 无法保存日志问题。
+删除com.xohaa.flow 和 com.xohaa.handlesql，因为代理使用的script库中使用 Class.forName获取不了script库的类。提示找不到
+-------------v1.4.11:20180622
+修复TableListSQL一些错误。
+
+-------------v1.4.12:20180705
+HandleSQLCon add setSQLCodePrepareUpdatetable 只用于结果集，可以使用更新语句并且可向前后移动。
+HandleSQLCon add setSQLCodePrepareResultSetOption 只用于结果集，可定义结果集参数。
+
+-------------v1.4.13:20180713
+增加com.xohaa.filemanage 相关类。
+
+-------------v1.4.14:20180715
+增加DocumentSaveimpl类、DocumentSave接口和com.xohaa.domino.names.NameGroup类。
+FileData、FolderData和NameGroup继承DocumentSaveimpl类，DocumentSaveimpl实现DocumentSave接口
+
+-------------v1.4.16:20180718
+Func 增加：isSysAdmin 判断当前用户是不是系统管理员
+TableListSQL 添加创建人权限控制。
+
+-------------v1.4.17
+DocumentSaveimpl 增加：addNewDoc()方法。
+DocumentSave接口增加：isHasData 方法。
+
+-------------v1.4.18
+修复pool连接池
+-------------v1.4.19:20180803
+base 增加超大Request_Content字段的处理。
+
+-------------v1.4.20:20180809
+FileData和FolderData增加固定角色字段处理。
+
+-------------v1.4.21:20180809
+修复NameGroup 的bug。
+-------------v1.5.1:20180810
+修复tablelist power 方法无权限出错。
+
+-------------v1.5.3:20180817
+增加com.xohaa.domino.config.save.Multdata类来添加或修改domino多值配置。
+
+-------------v1.5.4:20180824
+修改列表权限写死FXSID的问题。
+-------------v1.5.5:20180825
+增加TableListSQL权限过滤
+-------------v1.5.6:20180914
+修复getItemValueString的错误。
